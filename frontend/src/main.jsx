@@ -18,11 +18,11 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "payment/success/:tran_id",
+    path: "/success",
     element: <PaymentSuccess />,
   },
   {
-    path: "payment/failed/:tran_id",
+    path: "/failed",
     element: <PaymentFailed />,
   },
 ]);

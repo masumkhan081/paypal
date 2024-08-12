@@ -12,6 +12,7 @@ export default function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
     const postData = {
       name: name,
       amount: amount
@@ -24,9 +25,18 @@ export default function App() {
       body: JSON.stringify(postData)
     };
 
-let response = await axios.post('http:localhost:3000/payment')
+    axios.post("http://localhost:3000/payment", postData)
+      .then(response => {
 
- 
+
+        let link = response.data.links[1].href;
+        window.location.href = link;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+
+
   }
 
   // 
